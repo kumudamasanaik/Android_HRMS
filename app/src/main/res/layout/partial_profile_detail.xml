@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/color_blue">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+<!--
+            <com.hrms.hrmsandroidapp.customviews.progressbar.CircularImageView
+                android:id="@+id/profile_photo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"/>-->
+
+            <ImageView
+                android:id="@+id/profile_photo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_person_white"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical"
+                android:layout_toEndOf="@+id/profile_photo">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_profile_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"/>
+
+                <LinearLayout
+                    android:id="@+id/email_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_email" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_email"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:text="@string/dummy_email"
+                        android:textColor="@color/md_white_10001"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/mobile_num_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_call" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:text="@string/dummy_cell_number"
+                        android:textColor="@color/md_white_10001"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

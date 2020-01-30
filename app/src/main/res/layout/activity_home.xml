@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rel_bg"
+    tools:context=".screens.home.HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/partial_profile_detail"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/attendence_layout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:padding="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="@dimen/_62sdp"
+                android:layout_height="@dimen/_62sdp"
+                android:gravity="center"
+                android:background="@drawable/round_with_white_background"
+                android:padding="@dimen/_1sdp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_date_range_black" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="@string/attendence"/>
+
+        </LinearLayout>
+            </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="0.01"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/color_blue" />
+
+            <LinearLayout
+                android:id="@+id/leave_layout"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/_62sdp"
+                        android:layout_height="@dimen/_62sdp"
+                        android:gravity="center"
+                        android:background="@drawable/round_with_white_background"
+                        android:padding="@dimen/_1sdp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_leave_icon" />
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/leave"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+    </LinearLayout>
+
+        <View
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/color_blue" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

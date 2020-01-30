@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".screens.login.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_login"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@color/color_blue"/>
+
+        <LinearLayout
+            android:layout_below="@+id/img_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+            <!--
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_employee_id"
+                            style="@style/email_pass_edit_text"
+                            android:hint="@string/employee_id"
+                            android:layout_width="match_parent"
+                            android:layout_margin="5dp"
+                            android:textColorHint="@color/light_black"
+                            android:layout_height="wrap_content" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/et_password"
+                            style="@style/email_pass_edit_text"
+                            android:hint="@string/password"
+                            android:layout_width="match_parent"
+                            android:textColorHint="@color/light_black"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content" />-->
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/employee_id"
+                android:layout_margin="5dp"
+                android:textColorHint="@color/light_black"
+                android:backgroundTint="@color/colorPrimary" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:layout_margin="5dp"
+                android:textColorHint="@color/light_black"
+                android:backgroundTint="@color/colorPrimary" />
+
+            <!-- <LinearLayout
+                 android:id="@+id/btn_login"
+                 android:clickable="true"
+                 style="@style/button_style"
+                 android:orientation="horizontal"
+                 android:layout_height="50dp"
+                 android:layout_marginStart="55dp"
+                 android:layout_marginEnd="55dp"
+                 android:layout_marginTop="45dp"
+                 android:focusable="true">
+
+                 <androidx.appcompat.widget.AppCompatButton
+                     style="@style/button_style"
+                     android:layout_width="0dp"
+                     android:layout_weight="1"
+                     android:text="@string/login"
+                     android:textSize="16sp"
+                     android:layout_gravity="center"
+                     android:gravity="center|end"
+                     android:textColor="@color/colorWhite"/>
+
+                 <androidx.appcompat.widget.AppCompatImageView
+                     android:layout_width="0dp"
+                     android:layout_weight="1"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="start|center"
+                     android:src="@drawable/ic_keyboard_arrow_right_white"/>
+
+             </LinearLayout>-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_login"
+                style="@style/button_style"
+                android:text="@string/login"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="45dp"
+                android:textSize="16sp"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_right_white"
+                android:textColor="@color/colorWhite"/>
+
+           <!-- <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_forgot_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="45dp"
+                android:text="@string/forgot_password"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:textColor="@color/color_blue"/>
+-->
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

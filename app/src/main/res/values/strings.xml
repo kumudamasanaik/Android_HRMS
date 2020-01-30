@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">HRMSandroidApp</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="employee_id">Employee ID</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="email_id">Email Id</string>
+    <string name="submit">SUBMIT</string>
+    <string name="forgot_password_text">Forgot  Your Password ?</string>
+    <string name="CHANGE_PASSWORD">Change Password</string>
+    <string name="my_profile">My Profile</string>
+    <string name="name">Profile Name</string>
+    <string name="profile_name">Profile Name</string>
+    <string name="dummy_email">Email@gmail.com</string>
+    <string name="dummy_cell_number">1234567892</string>
+    <string name="no_result_found">No result Found</string>
+    <string name="woops_something_went_wrong">Woops Something went wrong</string>
+    <string name="retry">retry</string>
+    <string name="NOTIFICATION">Notification</string>
+    <string name="dummy_notification_text">You got one notification</string>
+    <string name="dummy_notification_date">12 jan 2020</string>
+    <string name="attendence">ATTENDENCE</string>
+    <string name="leave">LEAVE/WFH</string>
+    <string name="cancel">CANCEL</string>
+    <string name="tx_chech_out">Do You Want To CheckOut?</string>
+    <string name="ok">OK</string>
+    <string name="leave_string">Leave</string>
+    <string name="WFH">WFH</string>
+
+</resources>

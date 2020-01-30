@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ToolbarStyle"
+    android:id="@+id/my_tool_bar"
+    android:layout_width="match_parent"
+    app:navigationIcon="@drawable/ic_three_line"
+    android:layout_height="@dimen/_38sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginLeft="0dp">
+
+        <TextView
+            android:id="@+id/tv_screen_title"
+            style="@style/ToolbarTitleStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:layout_marginLeft="@dimen/_4sdp" />
+
+        <FrameLayout
+            android:id="@+id/cart_layout"
+            style="?attr/actionButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/ic_notification"
+                style="@style/app_menu_icon_style"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:padding="@dimen/_1sdp"
+                app:srcCompat="@drawable/ic_notification"
+                tools:ignore="VectorDrawableCompat"
+                android:layout_marginStart="10dp"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/cart_badge"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_marginEnd="5dp"
+                android:layout_gravity="end|top"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cart_badge_background"
+                android:gravity="center"
+                android:textColor="@color/color_black"
+                android:textSize="8sp"
+                android:text="2"/>
+
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

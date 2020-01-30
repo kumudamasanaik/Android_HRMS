@@ -1,0 +1,132 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
+        <item name="colorControlHighlight">@color/colorHighlight</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="popupTheme">@style/MyActionBar</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:windowAnimationStyle">@null</item>
+
+    </style>
+
+    <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_cart_test</item>
+        <item name="android:maxHeight">40dp</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Theme.AppCompat.Light">
+        <item name="android:popupBackground">@color/md_white_1000</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/md_white_1000</item>
+    </style>
+
+
+    <style name="AppTheme_Loading_Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@color/colorTransparent</item>
+        <item name="android:windowBackground">@color/md_white_1000</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MultiStateViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="msv_animateViewChanges">false</item>
+        <item name="msv_emptyView">@layout/empty_view</item>
+        <item name="msv_errorView">@layout/error_view</item>
+        <item name="msv_loadingView">@layout/loading_view</item>
+        <item name="msv_viewState">content</item>
+    </style>
+
+    <!-- Common Styles -->
+    <style name="ToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="ToolbarTitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">start</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="app_menu_icon_style">
+        <item name="android:layout_width">15dp</item>
+        <item name="android:layout_height">15dp</item>
+
+    </style>
+
+    <style name="email_pass_edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@drawable/bg_corner_radius</item>
+        <item name="android:inputType">text</item>
+        <item name="android:alpha">0.8</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColorHint">@color/app_txt_white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="button_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/md_grey_500</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!--CALENDER STYLE-->
+    <style name="MyDatePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="SwitchStyle" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">#46bdbf</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">#f1f1f1
+        </item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#42221f1f
+        </item>
+    </style>
+
+</resources>
