@@ -16,6 +16,8 @@
         android:textColor="@color/colorPrimary"
         android:text="Do You Want To Checked In?"
         android:textSize="16sp"
+        android:thumbTint="@color/colorGrey"
+        android:trackTint="@color/colorWhite"
         android:checked="false"
         android:theme="@style/SwitchStyle"/>
 </RelativeLayout>
