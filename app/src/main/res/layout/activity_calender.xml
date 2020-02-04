@@ -13,38 +13,47 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.applandeo.materialcalendarview.CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
-
-        <include layout="@layout/option_layout"/>
+        <com.applandeo.materialcalendarview.CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:abbreviationsBarColor="#303F9F"
+            app:abbreviationsLabelsColor="@android:color/white"
+            app:anotherMonthsDaysLabelsColor="#3F51B5"
+            app:daysLabelsColor="@android:color/white"
+            app:pagesColor="#3F51B5"
+            app:selectionColor="@android:color/white"
+            app:selectionLabelColor="#3F51B5"
+            app:todayLabelColor="#20DF0B"
+            app:type="many_days_picker" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:padding="8dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_cancel"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_weight="1"
-                android:background="@drawable/blue_outline_curve"
-                android:text="@string/cancel"
-                android:textColor="@color/colorPrimary" />
+            <include layout="@layout/option_layout" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/blue_outline_curve"
+                    android:text="@string/cancel"
+                    android:textColor="@color/colorPrimary" />
 
             <Button
                 android:id="@+id/btn_ok"
@@ -59,7 +68,6 @@
         </LinearLayout>
 
 
-
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 </androidx.core.widget.NestedScrollView>

@@ -3,6 +3,7 @@ package com.hrms.hrmsandroidapp.screens.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import com.annimon.stream.Stream
@@ -20,8 +21,7 @@ import kotlinx.android.synthetic.main.app_bar_home.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HomeActivity : SubBaseActivity(), View.OnClickListener, ISelectedDateListener ,
-    OnSelectDateListener {
+class HomeActivity : SubBaseActivity(), View.OnClickListener {
     private var mContext: Context? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +29,9 @@ class HomeActivity : SubBaseActivity(), View.OnClickListener, ISelectedDateListe
         // setContentView(R.layout.activity_home)
         layoutInflater.inflate(R.layout.activity_home, fragment_layout)
         setToolBarTittle(getString(R.string.app_name))
-        mContext=this
+        mContext = this
         init()
         showMenu()
-        hideBackbtn()
     }
 
     private fun init() {
@@ -41,25 +40,33 @@ class HomeActivity : SubBaseActivity(), View.OnClickListener, ISelectedDateListe
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.attendence_layout->{
-                val intent = Intent(mContext, SwitchActivity::class.java)
-                startActivity(intent)
+        when (v!!.id) {
+            R.id.attendence_layout -> {
+                navigateToSwitchActivity()
             }
-            R.id.leave_layout->{
-                val intent = Intent(mContext, CalenderActivity::class.java)
-                startActivity(intent)
-                //openManyDaysPicker()
+
+            R.id.leave_layout -> {
+                navigateToCalenderActivity()
             }
         }
     }
 
-
-    override fun setSelectedDate(date: String) {
-
+    private fun navigateToCalenderActivity() {
+        val intent = Intent(mContext, CalenderActivity::class.java)
+        startActivity(intent)
     }
 
+    private fun navigateToSwitchActivity() {
+        val intent = Intent(mContext, SwitchActivity::class.java)
+        startActivity(intent)
+    }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
+
+/*
     private fun openManyDaysPicker() {
         val min = Calendar.getInstance()
         min.add(Calendar.DAY_OF_MONTH, -5)
@@ -112,6 +119,20 @@ class HomeActivity : SubBaseActivity(), View.OnClickListener, ISelectedDateListe
             ).show()
         }
     }
+*/
 
+/*override fun setSelectedDate(date: String) {
+
+    }
+*/
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
 
 }

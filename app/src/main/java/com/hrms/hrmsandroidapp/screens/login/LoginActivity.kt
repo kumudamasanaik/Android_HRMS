@@ -8,7 +8,6 @@ import android.view.View
 import com.hrms.hrmsandroidapp.R
 import com.hrms.hrmsandroidapp.screens.changepassword.ChangePasswordActivity
 import com.hrms.hrmsandroidapp.screens.home.HomeActivity
-import com.hrms.hrmsandroidapp.screens.myprofile.MyProfileActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -29,7 +28,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.btn_login->{
-                navigateToMyProfileScreen()
+                navigateToHomeScreen()
 
             }
             /*R.id.tv_forgot_password->{
@@ -44,8 +43,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
     }
 
-    private fun navigateToMyProfileScreen() {
+    private fun navigateToHomeScreen() {
         val intent = Intent(mContext, HomeActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }

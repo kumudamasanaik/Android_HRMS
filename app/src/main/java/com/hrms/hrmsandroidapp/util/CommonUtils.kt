@@ -5,22 +5,18 @@ import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.graphics.Bitmap
-import android.os.Bundle
 import android.util.Base64
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Switch
-import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.hrms.hrmsandroidapp.R
 import com.hrms.hrmsandroidapp.constants.Constants
 import com.hrms.hrmsandroidapp.listener.ISelectedDateListener
 import com.hrms.hrmsandroidapp.listener.ReasonDialogueClickListener
-import com.hrms.hrmsandroidapp.screens.home.HomeActivity
-import kotlinx.android.synthetic.main.activity_switch.*
-import kotlinx.android.synthetic.main.activity_switch.view.*
-import kotlinx.android.synthetic.main.partail_return_popup_dialog.view.*
+import com.hrms.hrmsandroidapp.util.SharedPreferenceManager.Companion.getPrefVal
+import com.hrms.hrmsandroidapp.util.SharedPreferenceManager.Companion.setPrefVal
+import kotlinx.android.synthetic.main.partail_check_out_dialog.view.*
 import java.io.ByteArrayOutputStream
 import java.util.*
 
@@ -98,14 +94,12 @@ class CommonUtils {
             datePickerDialog.datePicker.maxDate = cal.timeInMillis*/
             datePickerDialog.setTitle("")
             datePickerDialog.show()
-
-
             }
 
-        fun customisedReasonDialogue(mcontext:Context, listener: ReasonDialogueClickListener?, body:String,switchButton:Switch){
+        fun customisedCheckOutDialogue(mcontext:Context, listener: ReasonDialogueClickListener?, body:String, switchButton:Switch){
             val builder = AlertDialog.Builder(mcontext)
             val inflater = LayoutInflater.from(mcontext)
-            val dialogview = inflater.inflate(R.layout.partail_return_popup_dialog, null)
+            val dialogview = inflater.inflate(R.layout.partail_check_out_dialog, null)
 
             dialogview.return_dialog_body.text = body
             builder.setView(dialogview)
@@ -113,7 +107,6 @@ class CommonUtils {
             val dialog = builder.create()
             dialogview.return_btn_ok.setOnClickListener {
                 dialog.dismiss()
-                //var switchButton=dialogview.findViewById<View>(R.id.switchButton)
 
                 switchButton.isChecked=false
                     listener?.onClick(type = Constants.ORDER_CANCELLED_CONFIRMATION)
@@ -121,28 +114,46 @@ class CommonUtils {
 
             dialogview.return_btn_cancel.setOnClickListener {
                 switchButton.isChecked=true
+                switchButton.text="Check Out"
+
                 dialog.dismiss()
             }
             dialog.show()
         }
 
-       /* fun showDialog(context: Context, body: String) {
-            val builder = AlertDialog.Builder(context)
-            val inflater = LayoutInflater.from(context)
-            val dialogview = inflater.inflate(R.layout.partail_popup_dialog, null)
-
-            dialogview.dialog_body.text = body
-            builder.setView(dialogview)
-            val dialog = builder.create()
-            dialogview.btn_ok.setOnClickListener {
-                dialog.dismiss()
-                val bundle = Bundle()
-                startActivity(context, LoginActivity::class.java, bundle, true)
-            }
-            dialogview.btn_cancel.setOnClickListener {
-                dialog.dismiss()
-            }
-            dialog.show()
+        fun saveSelectedDays(selectedDays: ArrayList<Calendar>) {
+            val gson = Gson()
+            val json = gson.toJson(selectedDays).toString()
+            setPrefVal(Constants.SELECTED_DAYS, json, SharedPreferenceManager.VALUE_TYPE.STRING)
         }
-       */ }
+
+        fun getSelectedDays():ArrayList<Calendar>? {
+            val gson = Gson()
+            val json = getPrefVal(Constants.SELECTED_DAYS, "", SharedPreferenceManager.VALUE_TYPE.STRING) as String
+            if (Validation.isValidString(json)) {
+                val type = object : TypeToken<List<Calendar>>() {}.type
+                return gson.fromJson<ArrayList<Calendar>>(json, type)
+            }
+            return null
+        }
+
+        /* fun showDialog(context: Context, body: String) {
+             val builder = AlertDialog.Builder(context)
+             val inflater = LayoutInflater.from(context)
+             val dialogview = inflater.inflate(R.layout.partail_popup_dialog, null)
+
+             dialogview.dialog_body.text = body
+             builder.setView(dialogview)
+             val dialog = builder.create()
+             dialogview.btn_ok.setOnClickListener {
+                 dialog.dismiss()
+                 val bundle = Bundle()
+                 startActivity(context, LoginActivity::class.java, bundle, true)
+             }
+             dialogview.btn_cancel.setOnClickListener {
+                 dialog.dismiss()
+             }
+             dialog.show()
+         }
+        */ }
     }

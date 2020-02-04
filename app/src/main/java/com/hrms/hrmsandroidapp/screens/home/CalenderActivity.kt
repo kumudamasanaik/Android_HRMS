@@ -1,6 +1,7 @@
 package com.hrms.hrmsandroidapp.screens.home
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.hrms.hrmsandroidapp.R
@@ -17,12 +18,17 @@ import com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener
 import com.applandeo.materialcalendarview.listeners.OnSelectDateListener
 import com.applandeo.materialcalendarview.utils.calendar
 import com.applandeo.materialcalendarview.utils.setCurrentMonthDayColors
+import com.hrms.hrmsandroidapp.util.CommonUtils
+import kotlinx.android.synthetic.main.activity_switch.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 
-class CalenderActivity : AppCompatActivity(), View.OnClickListener, OnCalendarPageChangeListener, OnSelectDateListener {
+class CalenderActivity : AppCompatActivity(), View.OnClickListener, OnCalendarPageChangeListener,
+    OnSelectDateListener {
 
     private var mContext: Context? = null
+    private val selectedDayslist = arrayListOf<Calendar>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,23 +38,21 @@ class CalenderActivity : AppCompatActivity(), View.OnClickListener, OnCalendarPa
     }
 
     private fun init() {
-        //openManyDaysPicker()
         calendarView.setOnDayClickListener(object : OnDayClickListener {
             override fun onDayClick(eventDay: EventDay) {
                 val clickedDayCalendar = eventDay.calendar
-
             }
         })
+
         calendarView.setOnForwardPageChangeListener(this)
         calendarView.setOnPreviousPageChangeListener(this)
-        calendarView.selectedDates = getSelectedDays()
+        //calendarView.selectedDates = getSelectedDays()
 
 
         radio_leave_layout.setOnClickListener(this)
         radio_work_from_home_layout.setOnClickListener(this)
         btn_cancel.setOnClickListener(this)
         btn_ok.setOnClickListener(this)
-
     }
 
     override fun onClick(view: View?) {
@@ -63,59 +67,90 @@ class CalenderActivity : AppCompatActivity(), View.OnClickListener, OnCalendarPa
                 img_leave.setImageResource(R.drawable.ic_radio_button_unchecked_black_24dp)
             }
             R.id.btn_cancel -> {
-
+                for (calendar in calendarView.selectedDates) {
+                    selectedDayslist.remove(calendar)
+                    CommonUtils.saveSelectedDays(selectedDayslist)
+                    CommonUtils.getSelectedDays()
+                }
+                navigateToHomeScreen()
             }
 
             R.id.btn_ok -> {
-                for (calendar in calendarView.selectedDates) {
-                    println(calendar.time.toString())
-                    Toast.makeText(applicationContext, calendar.time.toString(), Toast.LENGTH_SHORT).show()
+                if(radio_leave_layout.visibility==View.VISIBLE){
+                    for (calendar in calendarView.selectedDates) {
+                        val df = SimpleDateFormat("dd-MMM-yyyy")
+                        val formattedDate = df.format(calendar.time)
+                        Toast.makeText(applicationContext, formattedDate, Toast.LENGTH_SHORT).show()
+
+                        selectedDayslist.add(calendar)
+                        CommonUtils.saveSelectedDays(selectedDayslist)
+                        CommonUtils.getSelectedDays()
+                    }
+
+                }
+                else{
+                    for (calendar in calendarView.selectedDates) {
+                        val df = SimpleDateFormat("dd-MMM-yyyy")
+                        val formattedDate = df.format(calendar.time)
+                        Toast.makeText(applicationContext, formattedDate, Toast.LENGTH_SHORT).show()
+
+                        selectedDayslist.add(calendar)
+                        CommonUtils.saveSelectedDays(selectedDayslist)
+                        CommonUtils.getSelectedDays()
+                    }
                 }
             }
         }
+    }
+
+    private fun navigateToHomeScreen() {
+        val intent = Intent(mContext, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     override fun onChange() {
 
     }
 
-    private fun getSelectedDays(): List<Calendar> {
-        val calendars = ArrayList<Calendar>()
+    /* private fun getSelectedDays(): List<Calendar> {
+         val calendars = ArrayList<Calendar>()
 
-        for (i in 0..9) {
-            val calendar = calendar
-            calendar.add(Calendar.DAY_OF_MONTH, i)
-            calendars.add(calendar)
-        }
-        return calendars
-    }
+         for (i in 0..9) {
+             val calendar = calendar
+             calendar.add(Calendar.DAY_OF_MONTH, i)
+             calendars.add(calendar)
+         }
+         return calendars
+     }
 
-    private fun openManyDaysPicker() {
-        val min = Calendar.getInstance()
-        min.add(Calendar.DAY_OF_MONTH, -5)
+     private fun openManyDaysPicker() {
+         val min = Calendar.getInstance()
+         min.add(Calendar.DAY_OF_MONTH, -5)
 
-        val max = Calendar.getInstance()
-        max.add(Calendar.DAY_OF_MONTH, 3)
+         val max = Calendar.getInstance()
+         max.add(Calendar.DAY_OF_MONTH, 3)
 
-        val selectedDays = ArrayList(getDisabledDays())
-        selectedDays.add(min)
-        selectedDays.add(max)
+         val selectedDays = ArrayList(getDisabledDays())
+         selectedDays.add(min)
+         selectedDays.add(max)
 
-        val manyDaysBuilder = DatePickerBuilder(this, this)
-            .setPickerType(CalendarView.MANY_DAYS_PICKER)
-            .setHeaderColor(android.R.color.holo_blue_dark)
-            .setSelectionColor(android.R.color.holo_blue_dark)
-            .setTodayLabelColor(android.R.color.holo_blue_dark)
-            .setDialogButtonsColor(android.R.color.holo_blue_dark)
-            .setSelectedDays(selectedDays)
-            .setNavigationVisibility(View.GONE)
-            .setDisabledDays(getDisabledDays())
+         val manyDaysBuilder = DatePickerBuilder(this, this)
+             .setPickerType(CalendarView.MANY_DAYS_PICKER)
+             .setHeaderColor(android.R.color.holo_blue_dark)
+             .setSelectionColor(android.R.color.holo_blue_dark)
+             .setTodayLabelColor(android.R.color.holo_blue_dark)
+             .setDialogButtonsColor(android.R.color.holo_blue_dark)
+             .setSelectedDays(selectedDays)
+             .setNavigationVisibility(View.GONE)
+             .setDisabledDays(getDisabledDays())
 
-        val manyDaysPicker = manyDaysBuilder.build()
-        manyDaysPicker.show()
-    }
+         val manyDaysPicker = manyDaysBuilder.build()
+         manyDaysPicker.show()
+     }
+*/
 
-    private fun getDisabledDays(): List<Calendar> {
+   /* private fun getDisabledDays(): List<Calendar> {
         val firstDisabled = calendar
         firstDisabled.add(Calendar.DAY_OF_MONTH, 2)
 
@@ -130,8 +165,7 @@ class CalenderActivity : AppCompatActivity(), View.OnClickListener, OnCalendarPa
         calendars.add(secondDisabled)
         calendars.add(thirdDisabled)
         return calendars
-    }
-
+    }*/
 
     override fun onSelect(calendars: List<Calendar>) {
         Stream.of(calendars).forEach { calendar ->

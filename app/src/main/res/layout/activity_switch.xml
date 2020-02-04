@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     tools:context=".screens.home.SwitchActivity">
 
@@ -12,12 +12,91 @@
         android:id="@+id/switchButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:textColor="@color/colorPrimary"
-        android:text="Do You Want To Checked In?"
-        android:textSize="16sp"
+        android:text="Check In"
+        android:textStyle="bold"
+        android:textSize="18sp"
         android:thumbTint="@color/colorGrey"
         android:trackTint="@color/colorWhite"
         android:checked="false"
         android:theme="@style/SwitchStyle"/>
+
+    <LinearLayout
+        android:id="@+id/time_date_layout"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/switchButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/date_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:text="@string/Checked_date"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="@string/dots"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_checked_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:text="@string/dummy_date"/>
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/time_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:text="@string/Checked_time"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="@string/dots"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_checked_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:text="@string/dummy_time"/>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

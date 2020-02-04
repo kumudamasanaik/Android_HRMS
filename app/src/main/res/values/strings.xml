@@ -27,5 +27,12 @@
     <string name="ok">OK</string>
     <string name="leave_string">Leave</string>
     <string name="WFH">WFH</string>
+    <string name="Check_out">Check Out</string>
+    <string name="Check_in">Check In</string>
+    <string name="Checked_date">Current Date </string>
+    <string name="dummy_date">01/01/2020</string>
+    <string name="dots">:</string>
+    <string name="Checked_time">Current Time</string>
+    <string name="dummy_time">02.00 pm</string>
 
 </resources>
