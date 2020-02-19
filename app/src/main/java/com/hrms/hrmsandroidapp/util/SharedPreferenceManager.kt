@@ -11,6 +11,7 @@ class SharedPreferenceManager {
     }
 
     companion object {
+        val USER_CHHECKED: String="USER_CHHECKED"
         val PREFERENCE_NAME = "app_pref"
         val IS_LOGED_IN = "IS_LOGED_IN"
         val SCREEN_WIDTH = "SCREEN_WIDTH"
@@ -72,6 +73,31 @@ class SharedPreferenceManager {
                 VALUE_TYPE.LONG -> `object` = getPrefs().getLong(key, defValue as Long)
             }
             return `object`
+        }
+
+/*added by me not correct*/
+        fun setMyPrefVal(key: String, value: ArrayList<String>, vType: VALUE_TYPE) {
+            when (vType) {
+                VALUE_TYPE.BOOLEAN -> getPrefs().edit().putBoolean(key, value as Boolean).apply()
+                VALUE_TYPE.INTEGER -> getPrefs().edit().putInt(key, value as Int).apply()
+                VALUE_TYPE.STRING -> getPrefs().edit().putString(key, (value as ArrayList<String>).toString()).apply()
+                VALUE_TYPE.FLOAT -> getPrefs().edit().putFloat(key, value as Float).apply()
+                VALUE_TYPE.LONG -> getPrefs().edit().putLong(key, value as Long).apply()
+                else -> {
+                }
+            }
+        }
+
+        fun getMyPrefVal(key: String, defValue: ArrayList<String>, vType: VALUE_TYPE): Any? {
+            val `String`: Any?
+            when (vType) {
+                VALUE_TYPE.BOOLEAN -> `String` = getPrefs().getBoolean(key, defValue as Boolean)
+                VALUE_TYPE.INTEGER -> `String` = getPrefs().getInt(key, defValue as Int)
+                VALUE_TYPE.STRING -> `String` = getPrefs().getString(key, (defValue as ArrayList<String>).toString())
+                VALUE_TYPE.FLOAT -> `String` = getPrefs().getFloat(key, defValue as Float)
+                VALUE_TYPE.LONG -> `String` = getPrefs().getLong(key, defValue as Long)
+            }
+            return `String`
         }
 
         fun isLogIn(): Boolean {

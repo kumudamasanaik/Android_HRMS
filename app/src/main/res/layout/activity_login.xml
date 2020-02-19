@@ -25,72 +25,31 @@
             android:layout_marginTop="45dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp">
-            <!--
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/et_employee_id"
-                            style="@style/email_pass_edit_text"
-                            android:hint="@string/employee_id"
-                            android:layout_width="match_parent"
-                            android:layout_margin="5dp"
-                            android:textColorHint="@color/light_black"
-                            android:layout_height="wrap_content" />
-
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/et_password"
-                            style="@style/email_pass_edit_text"
-                            android:hint="@string/password"
-                            android:layout_width="match_parent"
-                            android:textColorHint="@color/light_black"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_height="wrap_content" />-->
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_employee_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/employee_id"
+                android:textColor="@color/color_black"
                 android:layout_margin="5dp"
+                android:text="ISE10049"
                 android:textColorHint="@color/light_black"
                 android:backgroundTint="@color/colorPrimary" />
+            <!-- android:text="ISE10049"-->
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
+                android:text="sa"
+                android:inputType="textPassword"
+                android:textColor="@color/color_black"
                 android:layout_margin="5dp"
                 android:textColorHint="@color/light_black"
                 android:backgroundTint="@color/colorPrimary" />
 
-            <!-- <LinearLayout
-                 android:id="@+id/btn_login"
-                 android:clickable="true"
-                 style="@style/button_style"
-                 android:orientation="horizontal"
-                 android:layout_height="50dp"
-                 android:layout_marginStart="55dp"
-                 android:layout_marginEnd="55dp"
-                 android:layout_marginTop="45dp"
-                 android:focusable="true">
-
-                 <androidx.appcompat.widget.AppCompatButton
-                     style="@style/button_style"
-                     android:layout_width="0dp"
-                     android:layout_weight="1"
-                     android:text="@string/login"
-                     android:textSize="16sp"
-                     android:layout_gravity="center"
-                     android:gravity="center|end"
-                     android:textColor="@color/colorWhite"/>
-
-                 <androidx.appcompat.widget.AppCompatImageView
-                     android:layout_width="0dp"
-                     android:layout_weight="1"
-                     android:layout_height="wrap_content"
-                     android:layout_gravity="start|center"
-                     android:src="@drawable/ic_keyboard_arrow_right_white"/>
-
-             </LinearLayout>-->
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login"

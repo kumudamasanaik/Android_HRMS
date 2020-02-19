@@ -1,10 +1,16 @@
 package com.hrms.hrmsandroidapp.screens.notification
 
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hrms.hrmsandroidapp.R
@@ -20,6 +26,7 @@ class NotificationActivity : SubBaseActivity(), IAdapterClickListener {
     lateinit var notificationAdapter: BaseRecAdapter
     private var mContext: Context? = null
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        // setContentView(R.layout.activity_notification)

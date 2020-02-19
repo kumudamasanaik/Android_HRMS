@@ -1,31 +1,40 @@
 package com.hrms.hrmsandroidapp.screens.base
 
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.appbar.AppBarLayout
 import com.hrms.hrmsandroidapp.R
-import com.hrms.hrmsandroidapp.screens.notification.NotificationActivity
+import com.hrms.hrmsandroidapp.screens.switchscreen.SwitchActivity
 import com.hrms.hrmsandroidapp.util.SharedPreferenceManager
 import kotlinx.android.synthetic.main.activity_sub_base.*
 import kotlinx.android.synthetic.main.tool_bar_with_back.*
+import androidx.annotation.RequiresApi
 
 abstract class SubBaseActivity : AppCompatActivity() {
     lateinit var context: Context
     private var sharedPreferenceChangeListener: SharedPreferences.OnSharedPreferenceChangeListener? = null
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sub_base)
         initScreen()
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun initScreen() {
         context = this
         drawer_layout!!.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
@@ -38,16 +47,12 @@ abstract class SubBaseActivity : AppCompatActivity() {
 
         ic_notification.setOnClickListener {
             // startActivity(Intent(this, CartActivity::class.java))
-            val intent = Intent(context, NotificationActivity::class.java)
+            val intent = Intent(context, SwitchActivity::class.java)
             startActivity(intent)
-            //finish()
+            //startJobInNagout()
         }
-
-        /* search_view.setOnClickListener {
-             startActivity(Intent(this, SearchActivity::class.java))
-         }*/
-
     }
+
 
     fun showMenu() {
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_three_line)
@@ -90,7 +95,7 @@ abstract class SubBaseActivity : AppCompatActivity() {
     }
 
     fun hideNotificationView() {
-        ic_notification!!.visibility = View.GONE
+        notification_layout!!.visibility = View.GONE
     }
 
     private fun setToolbarScrollFlags(setFlags: Boolean = false) {
@@ -115,8 +120,26 @@ abstract class SubBaseActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         registerSharedPreferenceChangeListener()
+
     }
 
+/*
+    private fun startJob() {
+        val componentName = ComponentName(this, JobScheduler17::class.java)
+        val jobInfo = JobInfo.Builder(15, componentName)
+            .setRequiresCharging(true)
+            .build()
+        val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        val resultCode = jobScheduler.schedule(jobInfo)
+        if (resultCode == JobScheduler.RESULT_SUCCESS) {
+            Toast.makeText(this@SubBaseActivity, "Job Schedule started", Toast.LENGTH_LONG).show()
+            Log.e("Scheduling job","Scheduled job")
+
+        } else {
+            Toast.makeText(this@SubBaseActivity, "Job Schedule not started", Toast.LENGTH_LONG).show()
+        }
+    }
+*/
     private fun registerSharedPreferenceChangeListener() {
         sharedPreferenceChangeListener = SharedPreferences.OnSharedPreferenceChangeListener { preferences, key ->
             key?.let {

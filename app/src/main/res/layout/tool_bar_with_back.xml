@@ -27,7 +27,7 @@
             android:layout_marginLeft="@dimen/_4sdp" />
 
         <FrameLayout
-            android:id="@+id/cart_layout"
+            android:id="@+id/notification_layout"
             style="?attr/actionButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

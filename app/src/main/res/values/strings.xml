@@ -9,6 +9,7 @@
     <string name="submit">SUBMIT</string>
     <string name="forgot_password_text">Forgot  Your Password ?</string>
     <string name="CHANGE_PASSWORD">Change Password</string>
+    <string name="TV_CHANGE_PASSWORD">CHANGE PASSWORD</string>
     <string name="my_profile">My Profile</string>
     <string name="name">Profile Name</string>
     <string name="profile_name">Profile Name</string>
@@ -24,6 +25,7 @@
     <string name="leave">LEAVE/WFH</string>
     <string name="cancel">CANCEL</string>
     <string name="tx_chech_out">Do You Want To CheckOut?</string>
+    <string name="tx_check_in">Do You Want To CheckIn?</string>
     <string name="ok">OK</string>
     <string name="leave_string">Leave</string>
     <string name="WFH">WFH</string>
@@ -32,7 +34,42 @@
     <string name="Checked_date">Current Date </string>
     <string name="dummy_date">01/01/2020</string>
     <string name="dots">:</string>
-    <string name="Checked_time">Current Time</string>
+    <string name="Checked_time">Checked In</string>
+    <string name="Checked_out_time">Checked Out</string>
     <string name="dummy_time">02.00 pm</string>
+    <string name="error_no_internet">Please check the internet</string>
+    <string name="CHECKING_SCREEN">CHECKING SCREEN</string>
+    <string name="CALANDER_SCREEN">CALANDER SCREEN</string>
+    <string name="tx_leave">Leave</string>
+    <string name="tx_reason">Reason</string>
+    <string name="successfully_applied_for_leave">Successfully Applied for leave</string>
+    <string name="Reason_for_leave">Reason for leave</string>
+    <string name="Reason_for_to_work_from_home">Reason for work from home</string>
+    <string name="leave_history">Leave History</string>
+    <string name="tv_leave_history">LEAVE HISTORY</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="rsset_phone">Reset Phone</string>
+    <string name="error_invalid_user_id">Invalid User Id</string>
+    <string name="error_invalid_password">Invalid Password</string>
+    <string name="error_empty_password">Password should not be empty</string>
+    <string name="err_conf_pass_match">Confirm Password should match with Password</string>
+    <string name="passwrd_changed_successfully">password changed successfully</string>
+    <string name="Whoops_Something_went_wrong">Whoops! Something went wrong !!</string>
+    <string name="LEAVE_HISTORY">LEAVE HISTORY</string>
+
+
+    <array name="holidays">
+        <item>01-Jan-2020</item>
+        <item>15-Jan-2020</item>
+        <item>25-Mar-2020</item>
+        <item>10-Apr-2020</item>
+        <item>01-May-2020</item>
+        <item>25-May-2020</item>
+        <item>02-Oct-2020</item>
+        <item>26-Oct-2020</item>
+        <item>13-Nov-2020</item>
+        <item>25-Dec-2020</item>
+    </array>
 
 </resources>

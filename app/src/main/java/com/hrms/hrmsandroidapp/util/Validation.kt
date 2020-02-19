@@ -1,20 +1,20 @@
 package com.hrms.hrmsandroidapp.util
 
 import android.widget.EditText
+import com.hrms.hrmsandroidapp.constants.Constants
+import com.hrms.hrmsandroidapp.model.outputmodel.CommonRes
 import java.util.regex.Pattern
 
 class Validation {
     companion object {
         private var EMAIL_PATTERN: String? = null
 
-       /* fun isValidStatus(res: CommonRes?): Boolean {
-            if (res!!.Status!!.contentEquals(Constants.SUCCESS)) {
-                if (!res.TokenID.isNullOrEmpty())
-                    CommonUtils.setAuthorizationkey("bearer"+" "+res.TokenID)
+        fun isValidStatus(res: CommonRes?): Boolean {
+            if (res!!.status!!.contentEquals(Constants.SUCCESS)) {
                 return true
             }
             return false
-        }*/
+        }
 
         fun isValidObject(`object`: Any?): Boolean {
             return `object` != null

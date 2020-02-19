@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hrms.hrmsandroidapp.R
 import com.hrms.hrmsandroidapp.listener.IAdapterClickListener
-import com.hrms.hrmsandroidapp.screens.notification.viewholder.NotificationViewHolder
+import com.hrms.hrmsandroidapp.screens.leavehistory.viewholder.HistoryVewHolder
 import com.hrms.hrmsandroidapp.util.inflate
 import com.hrms.hrmsandroidapp.util.withNotNullNorEmpty
 
-class BaseRecAdapter(var context: Context, var type: Int, var adapterType: String = "common", var adapterClickListener: IAdapterClickListener? = null) : RecyclerView.Adapter<BaseViewholder>() {
+class BaseRecAdapter(var context: Context, var type: Int, var adapterType: String = "common", var adapterClickListener: IAdapterClickListener? = null)
+    : RecyclerView.Adapter<BaseViewholder>() {
 
     var list: ArrayList<*>? = null
 
@@ -23,7 +24,7 @@ class BaseRecAdapter(var context: Context, var type: Int, var adapterType: Strin
         val view = parent.inflate(type)
         lateinit var holder: BaseViewholder
         when (type) {
-             R.layout.partialy_notification_list_items -> holder = NotificationViewHolder(view, adapterType, adapterClickListener)
+             R.layout.partialy_history_list_items -> holder = HistoryVewHolder(view, adapterType, adapterClickListener)
         }
         return holder
     }
@@ -31,7 +32,6 @@ class BaseRecAdapter(var context: Context, var type: Int, var adapterType: Strin
     override fun getItemCount(): Int {
         return if (list != null && list!!.size > 0) list!!.size else 6
     }
-
 
     override fun onBindViewHolder(holder: BaseViewholder, position: Int) {
         list.withNotNullNorEmpty {
